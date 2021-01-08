@@ -18,9 +18,11 @@ def translate(event, context):
         }
     )
 
-    result['Item']['text'] = awstranslate.translate_text(Text=result['Item']['text'],
+    translatedText = awstranslate.translate_text(Text=result['Item']['text'],
                                   SourceLanguageCode="auto",
                                   TargetLanguageCode=event['pathParameters']['lang'])
+                                  
+    result['Item']['text'] = translatedText['TranslatedText']
     
     # create a response
     response = {
