@@ -22,6 +22,7 @@ def translate(event, context):
                                   SourceLanguageCode="auto",
                                   TargetLanguageCode=event['pathParameters']['lang'])
                                   
+    # replace the translated text
     result['Item']['text'] = translatedText['TranslatedText']
     
     # create a response
